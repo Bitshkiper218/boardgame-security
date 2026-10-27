@@ -86,6 +86,14 @@ const App = {
         this.handleHashChange();
         window.addEventListener('hashchange', () => this.handleHashChange());
     },
+    
+    mounted() {
+        // Записуємо неперсональні дані для демонстрації аудиту сховища (Крок 6)
+        localStorage.setItem('appName', 'Boardgame Catalog');
+        localStorage.setItem('theme_preference', 'light');
+        localStorage.setItem('last_visit', new Date().toLocaleDateString());
+    },
+
     computed: {
         filteredGames() {
             if (!this.currentGenre) return this.games;
